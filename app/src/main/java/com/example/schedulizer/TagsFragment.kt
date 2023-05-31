@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
@@ -18,14 +19,19 @@ class TagsFragment : Fragment(R.layout.fragment_tags) {
 
     lateinit var tagList : MutableList<Tag>
     lateinit var rvTags : RecyclerView
+    lateinit var btnAddTags : Button
+    lateinit var mainActivity: MainActivity
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rvTags = view.findViewById(R.id.rvTags)
-        tagList = mutableListOf()
+        val addTagsFragment = AddTagsFragment()
 
-        Log.d(TAG, "Tags started")
+        rvTags = view.findViewById(R.id.rvTags)
+        btnAddTags = view.findViewById(R.id.btnAddTags)
+        tagList = mutableListOf()
+        mainActivity = requireActivity() as MainActivity
+
         val db = Firebase.firestore
         db.collection("Tags")
             .get()
@@ -46,6 +52,10 @@ class TagsFragment : Fragment(R.layout.fragment_tags) {
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
             }
+
+        btnAddTags.setOnClickListener {
+            mainActivity.setFrameFragment(addTagsFragment)
+        }
 
     }
 

@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class TagAdapter(
-    var tags: List<Tag>
+    private var tags: List<Tag>
 ) : RecyclerView.Adapter<TagAdapter.TagViewHolder>() {
 
     inner class TagViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
