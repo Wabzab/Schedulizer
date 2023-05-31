@@ -10,4 +10,6 @@
     <color name="primary">#F1E9DB</color>
     <color name="secondary">#5EB1BF</color>
     <color name="accent">#EF7B45</color>
+    <color name="text_primary">#FF222222</color>
+    <color name="text_secondary">#FF333333</color>
 </resources>
