@@ -47,7 +47,6 @@ class TagsFragment : Fragment(R.layout.fragment_tags) {
                 val adapter = TagAdapter(tagList)
                 rvTags.adapter = adapter
                 rvTags.layoutManager = LinearLayoutManager(this.context)
-                Log.d(TAG, tagList.toString())
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)

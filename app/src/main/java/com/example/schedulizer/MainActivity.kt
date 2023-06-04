@@ -1,5 +1,6 @@
 package com.example.schedulizer
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,6 +10,8 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,8 +37,29 @@ class MainActivity : AppCompatActivity() {
         val tagsFragment = TagsFragment()
         val settingsFragment = SettingsFragment()
 
-        // Set default fragment
-        setFrameFragment(activitiesFragment)
+        // Firestore
+        val db = Firebase.firestore
+        val user = db.collection("Users")
+            .whereEqualTo("Name", "Test")
+            .limit(1)
+            .get()
+            .addOnSuccessListener { result ->
+                val sharedPref = this.getPreferences(Context.MODE_PRIVATE).edit()
+                sharedPref.putString(R.string.user_key.toString(), result.documents[0].id)
+                sharedPref.apply()
+            }
+
+        // Check if User Logged in
+        SaveSharedPreferences.setUserName(this, "Test")
+        if(SaveSharedPreferences.getUserName(this).isEmpty()){
+            // Send to Login Fragment
+            setFrameFragment(activitiesFragment)
+        }
+        else {
+            // Send to Activities Fragment
+            setFrameFragment(activitiesFragment)
+        }
+
 
         // Connect navigation buttons to drawer layout
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
