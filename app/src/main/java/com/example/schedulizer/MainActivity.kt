@@ -1,6 +1,5 @@
 package com.example.schedulizer
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,16 +43,15 @@ class MainActivity : AppCompatActivity() {
         val db = Firebase.firestore
 
         // Check if User Logged in already
+        SaveSharedPreferences.setUserName(this, "")
         if(SaveSharedPreferences.getUserName(this).isEmpty()){
             // Send to Login Fragment
-            // TODO: Create Login page & Create Account page
             Log.d(TAG, "User not logged in.")
-            SaveSharedPreferences.setUserName(this, "Test")
             setFrameFragment(loginFragment)
         }
         else {
             // Send to Activities Fragment
-            setFrameFragment(loginFragment)
+            setFrameFragment(activitiesFragment)
         }
 
 

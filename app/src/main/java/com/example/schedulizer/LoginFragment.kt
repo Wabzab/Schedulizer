@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.TextView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -26,6 +25,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
 
         val activitiesFragment = ActivitiesFragment()
+        val registrationFragment = RegistrationFragment()
 
         btnLogin = view.findViewById(R.id.btnLogin)
         btnRegister = view.findViewById(R.id.btnRegister)
@@ -38,7 +38,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         btnLogin.setOnClickListener {
             tvError.visibility = TextView.INVISIBLE
-            if (isInputValid(etName.text.toString(), etPassword.text.toString())) {
+            if (Utilities.isInputValid(etName.text.toString(), etPassword.text.toString())) {
                 db.collection("Users")
                     .whereEqualTo("Name", etName.text.toString())
                     .whereEqualTo("Password", etPassword.text.toString())
@@ -58,12 +58,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             }
         }
-    }
 
-    private fun isInputValid(name: String, password: String): Boolean {
-        if (etName.text.isEmpty() or etPassword.text.isEmpty()) {
-            return false
+        btnRegister.setOnClickListener {
+            mainActivity.setFrameFragment(registrationFragment)
         }
-        return true
     }
 }
