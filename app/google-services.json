@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "585861432122",
+    "project_id": "schedulizer-84d4d",
+    "storage_bucket": "schedulizer-84d4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585861432122:android:ba3766d576953d00468603",
+        "android_client_info": {
+          "package_name": "com.example.schedulizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585861432122-h7dmmtc168ld0e1lfqm04dafku7rctcr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpmuLaQ_MhiKxnVgrbwYiaeAMpmfgxn8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585861432122-h7dmmtc168ld0e1lfqm04dafku7rctcr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

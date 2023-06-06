@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 import androidx.preference.PreferenceManager
 
+
 class SaveSharedPreferences {
     companion object {
         const val PREF_USER_NAME: String = "username"
