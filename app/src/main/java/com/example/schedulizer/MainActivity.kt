@@ -13,13 +13,15 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.content.ContentValues.TAG
+import android.widget.TextView
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
     // Pre-initialise variables
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navView: NavigationView
+    public lateinit var navView: NavigationView
     private lateinit var frameLayout: FrameLayout
 
     // ----- Override Functions ----- //
@@ -43,14 +45,13 @@ class MainActivity : AppCompatActivity() {
         val db = Firebase.firestore
 
         // Check if User Logged in already
-        SaveSharedPreferences.setUserName(this, "")
         if(SaveSharedPreferences.getUserName(this).isEmpty()){
             // Send to Login Fragment
-            Log.d(TAG, "User not logged in.")
             setFrameFragment(loginFragment)
         }
         else {
             // Send to Activities Fragment
+            setHeaderUsername(SaveSharedPreferences.getUserName(this))
             setFrameFragment(activitiesFragment)
         }
 
@@ -95,6 +96,12 @@ class MainActivity : AppCompatActivity() {
             addToBackStack(fragment.toString())
             commit()
         }
+    }
+
+    fun setHeaderUsername(username: String) {
+         navView.getHeaderView(0)
+             .findViewById<TextView>(R.id.tvUserName)
+             .text = username
     }
 
 }

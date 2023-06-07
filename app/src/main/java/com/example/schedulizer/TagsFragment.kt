@@ -42,7 +42,6 @@ class TagsFragment : Fragment(R.layout.fragment_tags) {
                         document.get("name") as String,
                         document.get("colour") as String
                     ))
-                    Log.d(TAG, "${document.id} => ${document.data}")
                 }
                 val adapter = TagAdapter(tagList)
                 rvTags.adapter = adapter
