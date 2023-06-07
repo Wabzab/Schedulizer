@@ -3,13 +3,201 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/SettingPage"
+    android:padding="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SettingsFragment">
 
-    <TextView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Settings Fragment"
-        android:textSize="20dp" />
+        android:layout_height="200dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="26dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="-190dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient1"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Display"
+            android:textSize="17dp"
+            android:textColor="#FC974E"
+            android:textStyle="bold"
+            android:layout_marginRight="288dp"
+            android:layout_marginBottom="130dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Dark mode"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="26dp"
+            android:layout_marginBottom="35dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Receive notifications while using the app"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="60dp"/>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:track="@drawable/bg_track"
+            android:onClick="onSwitchClick"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="68dp"/>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:track="@drawable/bg_track"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="118dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="10dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Sound"
+            android:textSize="17dp"
+            android:textColor="#FC974E"
+            android:textStyle="bold"
+            android:layout_marginRight="288dp"
+            android:layout_marginBottom="130dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Mute all sounds"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="27dp"
+            android:layout_marginBottom="35dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Total app volume"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="60dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Controls the volume of all sounds on the app"
+            android:textSize="12dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="100dp"/>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:track="@drawable/bg_track"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="68dp"/>
+
+        <!-- Discrete slider -->
+        <com.google.android.material.slider.Slider
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:stepSize="10.0"
+            android:layout_marginTop="150dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Privacy"
+            android:textSize="17dp"
+            android:textColor="#FC974E"
+            android:textStyle="bold"
+            android:layout_marginRight="288dp"
+            android:layout_marginBottom="130dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Privacy Policy"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="26dp"
+            android:layout_marginBottom="35dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Terms and Conditions"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="60dp"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/infoicon"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="73dp"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/infoicon"
+            android:layout_marginLeft="185dp"
+            android:layout_marginTop="120dp"/>
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>
