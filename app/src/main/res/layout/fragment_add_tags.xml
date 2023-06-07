@@ -11,35 +11,43 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:paddingHorizontal="50dp">
 
         <TextView
             android:id="@+id/tvCreateTag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create New Tag"
+            android:textColor="@color/text_primary"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+        <EditText
+            android:id="@+id/etTagName"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="Tag Name"
+            android:textColor="@color/text_primary"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCreateTag">
+            app:layout_constraintTop_toBottomOf="@+id/tvCreateTag"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="25dp"/>
 
-            <EditText
-                android:id="@+id/etTagName"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Tag Name" />
-        </androidx.cardview.widget.CardView>
+
+        <Spinner
+            android:id="@+id/spnColors"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:entries="@array/colours"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvColorSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/etTagName" />
 
         <Button
             android:id="@+id/btnCreateTag"
@@ -49,7 +57,28 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/spnColors" />
+
+        <Button
+            android:id="@+id/btnCancelCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCreateTag" />
+
+        <TextView
+            android:id="@+id/tvColorSpinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Colour:"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etTagName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

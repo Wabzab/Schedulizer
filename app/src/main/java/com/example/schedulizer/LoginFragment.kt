@@ -46,6 +46,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     .addOnSuccessListener { result ->
                         if (result.documents.isNotEmpty()) {
                             SaveSharedPreferences.setUserName(mainActivity, result.documents[0].get("Name") as String)
+                            mainActivity.setHeaderUsername(SaveSharedPreferences.getUserName(mainActivity))
                             mainActivity.setFrameFragment(activitiesFragment)
                         }
                         else {
