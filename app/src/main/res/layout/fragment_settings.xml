@@ -55,6 +55,7 @@
             android:layout_marginLeft="26dp"
             android:layout_marginTop="60dp"/>
         <Switch
+            android:id="@+id/switchDarkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:track="@drawable/bg_track"
