@@ -39,6 +39,10 @@ class Stopwatch(private val onUpdate: (Long) -> Unit) {
         onUpdate(elapsedTime)
     }
 
+    fun getElapsedTime(): Long {
+        return elapsedTime
+    }
+
     companion object {
         private const val INTERVAL: Long = 100 // update interval in milliseconds
     }

@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.util.Log
 import android.widget.TextView
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -35,6 +37,12 @@ class DatabaseManager {
                 }
         }
 
+        fun getTag(name: String): Task<QuerySnapshot> {
+            return db.collection("Tags")
+                .whereEqualTo("name", name)
+                .get()
+        }
+
         fun addUser(name: String, password: String) {
             db.collection("Users")
                 .whereEqualTo("Name", name)
@@ -57,5 +65,19 @@ class DatabaseManager {
                 }
 
         }
+
+        fun getUser(name: String): Task<QuerySnapshot> {
+            return db.collection("Users")
+                .whereEqualTo("Name", name)
+                .get()
+        }
+
+        fun addActivity(activity: Activity) {
+            val document = db.collection("Activities").document()
+            val handle = document.set(activity)
+            handle.addOnSuccessListener { Log.d("Firebase", "Document Saved") }
+            handle.addOnFailureListener { Log.d("Firebase", "Save failed: $it") }
+        }
+
     }
 }
