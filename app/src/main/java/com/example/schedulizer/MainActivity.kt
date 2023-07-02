@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         val tagsFragment = TagsFragment()
         val settingsFragment = SettingsFragment()
         val loginFragment = LoginFragment()
+        val statsFragment = StatsFragment()
 
         // Firestore
         val db = Firebase.firestore
@@ -71,6 +72,8 @@ class MainActivity : AppCompatActivity() {
                     setFrameFragment(activityListFragment)
                 R.id.tagsItem ->
                     setFrameFragment(tagsFragment)
+                R.id.statsItem ->
+                    setFrameFragment(statsFragment)
                 R.id.settingsItem ->
                     setFrameFragment(settingsFragment)
             }

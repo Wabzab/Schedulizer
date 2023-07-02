@@ -12,6 +12,9 @@
             android:id="@+id/tagsItem"
             android:title="Tags"/>
         <item
+            android:id="@+id/statsItem"
+            android:title="Statistics"/>
+        <item
             android:id="@+id/settingsItem"
             android:title="Settings"/>
     </group>

@@ -5,9 +5,11 @@ import android.content.ContentValues
 import android.util.Log
 import android.widget.TextView
 import com.google.android.gms.tasks.Task
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.Date
 
 class DatabaseManager {
     companion object {
@@ -98,6 +100,13 @@ class DatabaseManager {
 
         fun getAllActivities(): Task<QuerySnapshot> {
             return db.collection("Activities").get()
+        }
+
+        fun getActivityByDate(date: Date): Task<QuerySnapshot> {
+            Log.d("DATABASE", "Timestamp: ${Timestamp(date)}")
+            return db.collection("Activities")
+                .whereEqualTo("start", Timestamp(date))
+                .get()
         }
 
     }
