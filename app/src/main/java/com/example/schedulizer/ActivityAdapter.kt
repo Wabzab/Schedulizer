@@ -1,14 +1,13 @@
 package com.example.schedulizer
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Timestamp
+import java.text.SimpleDateFormat
 import java.util.Date
 
 class ActivityAdapter(
@@ -27,6 +26,8 @@ class ActivityAdapter(
     override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
         holder.itemView.apply {
             findViewById<TextView>(R.id.tvActName).text = activities[position].name
+            findViewById<TextView>(R.id.tvActDate).text = formatDate(activities[position].start)
+            findViewById<TextView>(R.id.tvActDesc).text = activities[position].desc
             findViewById<ImageButton>(R.id.btnActDelete).setOnClickListener {
                 DatabaseManager.removeActivity(activities[position])
                 base_activities = base_activities.filter { activity: Activity ->
@@ -47,5 +48,10 @@ class ActivityAdapter(
             activity.start.toDate() > start && activity.start.toDate() < end
         }
         notifyDataSetChanged()
+    }
+
+    private fun formatDate(timestamp: Timestamp): String {
+        val date = timestamp.toDate()
+        return SimpleDateFormat("yyyy/MM/dd").format(date)
     }
 }

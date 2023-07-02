@@ -33,14 +33,32 @@
                 android:id="@+id/tvActName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:text="Name"
                 android:textColor="@color/text_primary"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnActDelete"
+                app:layout_constraintEnd_toStartOf="@+id/tvActDate"
                 app:layout_constraintStart_toEndOf="@+id/imgActIcon"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvActDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12/05/12"
+                android:layout_marginHorizontal="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvActName"
+                app:layout_constraintEnd_toStartOf="@+id/btnActDelete"
+                app:layout_constraintTop_toTopOf="@+id/tvActName" />
+
+            <TextView
+                android:id="@+id/tvActDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sample description"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnActDelete"
+                app:layout_constraintStart_toEndOf="@+id/imgActIcon"
+                app:layout_constraintTop_toBottomOf="@+id/tvActName" />
 
             <ImageButton
                 android:id="@+id/btnActDelete"
