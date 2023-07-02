@@ -3,6 +3,9 @@
 
     <group>
         <item
+            android:id="@+id/timerItem"
+            android:title="Timer"/>
+        <item
             android:id="@+id/activitiesItem"
             android:title="Activities"/>
         <item

@@ -82,33 +82,33 @@ class ActivitiesFragment : Fragment(R.layout.fragment_activities)
         }
 
         btnActSave.setOnClickListener {
-            stopwatch.stop()
-            val layout = layoutInflater.inflate(R.layout.alert_save_activity, null)
-            val spinner = layout.findViewById<Spinner>(R.id.spnAlertActTag)
-            setSpinner(spinner, mainActivity, db)
-            var alertDialogBuilder = AlertDialog.Builder(mainActivity)
-            alertDialogBuilder.setTitle("Save Activity")
-            alertDialogBuilder.setCancelable(false)
-            alertDialogBuilder.setView(layout)
-            // Set positive button functionality
-            alertDialogBuilder.setPositiveButton("Save",
-                DialogInterface.OnClickListener {
-                        dialog: DialogInterface, i: Int ->
-                    tracking = false
-                    paused = false
-                    saveActivity(layout, mainActivity, time)
-                    dialog.cancel()
-            })
-            // Set negative button functionality
-            alertDialogBuilder.setNegativeButton("Cancel",
-                DialogInterface.OnClickListener {
-                        dialog: DialogInterface, i: Int ->
-                    if (tracking) {
-                        stopwatch.start()
-                    }
-                    dialog.cancel()
-                })
-            alertDialogBuilder.show()
+            if (tracking) {
+                stopwatch.stop()
+                val layout = layoutInflater.inflate(R.layout.alert_save_activity, null)
+                val spinner = layout.findViewById<Spinner>(R.id.spnAlertActTag)
+                setSpinner(spinner, mainActivity, db)
+                var alertDialogBuilder = AlertDialog.Builder(mainActivity)
+                alertDialogBuilder.setTitle("Save Activity")
+                alertDialogBuilder.setCancelable(false)
+                alertDialogBuilder.setView(layout)
+                // Set positive button functionality
+                alertDialogBuilder.setPositiveButton("Save",
+                    DialogInterface.OnClickListener { dialog: DialogInterface, i: Int ->
+                        tracking = false
+                        paused = false
+                        saveActivity(layout, mainActivity, time)
+                        dialog.cancel()
+                    })
+                // Set negative button functionality
+                alertDialogBuilder.setNegativeButton("Cancel",
+                    DialogInterface.OnClickListener { dialog: DialogInterface, i: Int ->
+                        if (tracking) {
+                            stopwatch.start()
+                        }
+                        dialog.cancel()
+                    })
+                alertDialogBuilder.show()
+            }
         }
     }
 
@@ -157,7 +157,7 @@ class ActivitiesFragment : Fragment(R.layout.fragment_activities)
         }
         var allTasks = Tasks.whenAll(getUserTask, getTagTask)
         allTasks.addOnSuccessListener {
-            val activity = Activity(etName.text.toString(), etDesc.text.toString(), date, time, tagID, userID)
+            val activity = Activity("", etName.text.toString(), etDesc.text.toString(), date, time, tagID, userID)
             DatabaseManager.addActivity(activity)
         }
     }

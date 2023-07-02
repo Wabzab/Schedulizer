@@ -29,7 +29,7 @@ class DatabaseManager {
             db.collection("Tags")
                 .document(tag.id)
                 .delete()
-                .addOnSuccessListener { documentReference ->
+                .addOnSuccessListener { _ ->
                     Log.d(ContentValues.TAG, "Document deleted")
                 }
                 .addOnFailureListener { e ->
@@ -41,6 +41,10 @@ class DatabaseManager {
             return db.collection("Tags")
                 .whereEqualTo("name", name)
                 .get()
+        }
+
+        fun getAllTags(): Task<QuerySnapshot> {
+            return db.collection("Tags").get()
         }
 
         fun addUser(name: String, password: String) {
@@ -74,9 +78,26 @@ class DatabaseManager {
 
         fun addActivity(activity: Activity) {
             val document = db.collection("Activities").document()
+            activity.id = document.id
             val handle = document.set(activity)
             handle.addOnSuccessListener { Log.d("Firebase", "Document Saved") }
             handle.addOnFailureListener { Log.d("Firebase", "Save failed: $it") }
+        }
+
+        fun removeActivity(activity: Activity) {
+            db.collection("Activities")
+                .document(activity.id)
+                .delete()
+                .addOnSuccessListener { _ ->
+                    Log.d(ContentValues.TAG, "Document deleted")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(ContentValues.TAG, "Error deleting document", e)
+                }
+        }
+
+        fun getAllActivities(): Task<QuerySnapshot> {
+            return db.collection("Activities").get()
         }
 
     }

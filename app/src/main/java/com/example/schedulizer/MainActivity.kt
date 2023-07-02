@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         // Fragments accessible from this activity
         val activitiesFragment = ActivitiesFragment()
+        val activityListFragment = ActivityList()
         val tagsFragment = TagsFragment()
         val settingsFragment = SettingsFragment()
         val loginFragment = LoginFragment()
@@ -64,8 +65,10 @@ class MainActivity : AppCompatActivity() {
         // Handle navigation item selection
         navView.setNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.activitiesItem ->
+                R.id.timerItem ->
                     setFrameFragment(activitiesFragment)
+                R.id.activitiesItem ->
+                    setFrameFragment(activityListFragment)
                 R.id.tagsItem ->
                     setFrameFragment(tagsFragment)
                 R.id.settingsItem ->
