@@ -34,6 +34,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         tvError = view.findViewById(R.id.tvLoginError)
         mainActivity = requireActivity() as MainActivity
 
+        mainActivity.setDrawerEnabled(false)
+
         val db = Firebase.firestore
 
         btnLogin.setOnClickListener {
@@ -47,6 +49,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         if (result.documents.isNotEmpty()) {
                             SaveSharedPreferences.setUserName(mainActivity, result.documents[0].get("Name") as String)
                             mainActivity.setHeaderUsername(SaveSharedPreferences.getUserName(mainActivity))
+                            mainActivity.setDrawerEnabled(true)
                             mainActivity.setFrameFragment(activitiesFragment)
                         }
                         else {

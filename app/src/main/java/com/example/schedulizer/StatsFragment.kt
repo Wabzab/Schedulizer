@@ -126,6 +126,7 @@ class StatsFragment : Fragment() {
         chart.description.text = ""
         chart.setNoDataText("Fetching Data...")
         chart.setDrawValueAboveBar(false)
+
         var left = chart.axisLeft
         left.setDrawLabels(true)
         left.setDrawAxisLine(true)
@@ -135,7 +136,7 @@ class StatsFragment : Fragment() {
         left.textSize = 16f
         left.textColor = resources.getColor(R.color.secondary, null)
         left.valueFormatter = YAxisFormatter()
-        chart.axisRight.isEnabled = false
+
         var bottom = chart.xAxis
         bottom.position = XAxis.XAxisPosition.BOTTOM
         bottom.textSize = 16f
@@ -148,9 +149,7 @@ class StatsFragment : Fragment() {
 }
 
 class XAxisFormatter : ValueFormatter() {
-
     private val days = listOf<String>("Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun")
-
     override fun getAxisLabel(value: Float, axis: AxisBase?): String {
         var day = Calendar.getInstance()
         day.set(Calendar.DAY_OF_YEAR, value.toInt())
@@ -159,7 +158,6 @@ class XAxisFormatter : ValueFormatter() {
 }
 
 class YAxisFormatter : ValueFormatter() {
-
     override fun getAxisLabel(value: Float, axis: AxisBase?): String {
         var rounded = (value * 100.0).roundToInt() / 100.0
         return "$rounded Hrs"

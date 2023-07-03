@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.QuerySnapshot
@@ -14,7 +15,7 @@ import java.util.Date
 class DatabaseManager {
     companion object {
 
-        val db = Firebase.firestore
+        var db = Firebase.firestore
 
         fun addTag(tag: HashMap<String, String>) {
             db.collection("Tags")

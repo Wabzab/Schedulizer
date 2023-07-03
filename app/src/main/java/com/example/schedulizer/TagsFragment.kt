@@ -34,6 +34,7 @@ class TagsFragment : Fragment(R.layout.fragment_tags) {
 
         val db = Firebase.firestore
         db.collection("Tags")
+            .whereEqualTo("userId", SaveSharedPreferences.user.uid)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {

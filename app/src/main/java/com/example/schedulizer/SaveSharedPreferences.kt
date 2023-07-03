@@ -36,6 +36,13 @@ class SaveSharedPreferences {
                     password = doc.get("Password") as String
                 )
             }
+
+        }
+
+        fun clearUser(ctx: Context) {
+            val editor: Editor = getSharedPreferences(ctx).edit()
+            editor.putString(PREF_USER_NAME, "")
+            editor.commit()
         }
     }
 }

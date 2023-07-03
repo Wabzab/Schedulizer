@@ -77,6 +77,8 @@ class MainActivity : AppCompatActivity() {
                     setFrameFragment(statsFragment)
                 R.id.settingsItem ->
                     setFrameFragment(settingsFragment)
+                R.id.logoutItem ->
+                    logout(loginFragment)
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
@@ -106,6 +108,19 @@ class MainActivity : AppCompatActivity() {
          navView.getHeaderView(0)
              .findViewById<TextView>(R.id.tvUserName)
              .text = username
+    }
+
+    fun setDrawerEnabled(state: Boolean) {
+        drawerLayout.visibility = DrawerLayout.VISIBLE
+        if (state) {
+            drawerLayout.visibility = DrawerLayout.VISIBLE
+        }
+
+    }
+
+    fun logout(loginFragment: LoginFragment) {
+        SaveSharedPreferences.clearUser(this)
+        setFrameFragment(loginFragment)
     }
 
 }
