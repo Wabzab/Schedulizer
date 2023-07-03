@@ -1,6 +1,9 @@
 # Schedulizer
 Really awesome app for keeping track of time for all activities and people.
 
+Project completed for Varsity College's BCAD3 OPSC7311 POE
+Group: 11
+
 ## Collabotors
 - Max Ospovat (GitOutOfHereNow)
 - Adrian Silver (St10082045)
