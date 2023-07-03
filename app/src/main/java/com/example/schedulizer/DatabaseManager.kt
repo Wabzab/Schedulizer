@@ -41,6 +41,7 @@ class DatabaseManager {
 
         fun getTag(name: String): Task<QuerySnapshot> {
             return db.collection("Tags")
+                .whereEqualTo("userId", SaveSharedPreferences.user.uid)
                 .whereEqualTo("name", name)
                 .get()
         }
@@ -81,6 +82,7 @@ class DatabaseManager {
         fun addActivity(activity: Activity) {
             val document = db.collection("Activities").document()
             activity.id = document.id
+            activity.userID = SaveSharedPreferences.user.uid
             val handle = document.set(activity)
             handle.addOnSuccessListener { Log.d("Firebase", "Document Saved") }
             handle.addOnFailureListener { Log.d("Firebase", "Save failed: $it") }
@@ -99,12 +101,15 @@ class DatabaseManager {
         }
 
         fun getAllActivities(): Task<QuerySnapshot> {
-            return db.collection("Activities").get()
+            return db.collection("Activities")
+                .whereEqualTo("userID", SaveSharedPreferences.user.uid)
+                .get()
         }
 
         fun getActivityByDate(date: Date): Task<QuerySnapshot> {
             Log.d("DATABASE", "Timestamp: ${Timestamp(date)}")
             return db.collection("Activities")
+                .whereEqualTo("userID", SaveSharedPreferences.user.uid)
                 .whereEqualTo("start", Timestamp(date))
                 .get()
         }

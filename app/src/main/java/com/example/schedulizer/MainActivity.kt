@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
         else {
             // Send to Activities Fragment
+            SaveSharedPreferences.setUser(this)
             setHeaderUsername(SaveSharedPreferences.getUserName(this))
             setFrameFragment(activitiesFragment)
         }

@@ -6,13 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".StatsFragment">
 
+    <TextView
+        android:id="@+id/tvStatTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Hours on Activities"
+        android:textSize="16sp"
+        android:layout_marginLeft="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvStatsYear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Year: "
+        android:textSize="16dp"
+        android:paddingRight="50sp"
+        android:layout_marginLeft="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tvStatTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvStatsWeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Week: "
+        android:textSize="16sp"
+        android:paddingRight="50sp"
+        android:layout_marginLeft="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tvStatsYear"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/bcHours"
         android:layout_width="0dp"
         android:layout_height="250sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toBottomOf="@+id/tvStatsWeek">
 
     </com.github.mikephil.charting.charts.BarChart>
 
