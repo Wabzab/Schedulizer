@@ -125,6 +125,7 @@
             android:layout_marginLeft="26dp"
             android:layout_marginTop="100dp"/>
         <Switch
+            android:id="@+id/switchMuteSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:track="@drawable/bg_track"
