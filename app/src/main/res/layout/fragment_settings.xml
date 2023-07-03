@@ -125,6 +125,7 @@
             android:layout_marginLeft="26dp"
             android:layout_marginTop="100dp"/>
         <Switch
+            android:id="@+id/switchMuteSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:track="@drawable/bg_track"
@@ -176,7 +177,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginLeft="26dp"
-            android:layout_marginBottom="35dp"/>
+            android:layout_marginBottom="70dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -186,19 +187,83 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginLeft="26dp"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="5dp"/>
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/infoicon"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="73dp"/>
+            android:layout_marginTop="56dp"/>
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/infoicon"
             android:layout_marginLeft="185dp"
-            android:layout_marginTop="120dp"/>
+            android:layout_marginTop="92dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Hours To Track Per Day"
+            android:textSize="17dp"
+            android:textColor="#FC974E"
+            android:textStyle="bold"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="50dp"/>
+        <TextView
+            android:id="@+id/txtMinText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Min: 2"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="136dp"
+            android:layout_marginTop="90dp"/>
+        <TextView
+            android:id="@+id/txtMaxText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Max: 4"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="218dp"
+            android:layout_marginTop="90dp"/>
+        <Button
+            android:id="@+id/btnMinPlus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:textStyle="bold"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="150dp" />
+        <Button
+            android:id="@+id/btnMinMinus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:textStyle="bold"
+            android:layout_marginLeft="154dp"
+            android:layout_marginTop="150dp" />
+        <Button
+            android:id="@+id/btnMaxPlus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:textStyle="bold"
+            android:layout_marginLeft="201dp"
+            android:layout_marginTop="150dp" />
+        <Button
+            android:id="@+id/btnMaxMinus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:textStyle="bold"
+            android:layout_marginLeft="244dp"
+            android:layout_marginTop="150dp" />
     </androidx.cardview.widget.CardView>
 
 </FrameLayout>
