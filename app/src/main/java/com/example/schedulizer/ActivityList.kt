@@ -4,17 +4,16 @@ import android.app.DatePickerDialog
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Timestamp
-import java.util.Calendar
-import java.util.Date
+import java.util.*
 
 class ActivityList : Fragment() {
 
@@ -68,6 +67,7 @@ class ActivityList : Fragment() {
                     document.get("duration") as Long,
                     document.get("tagID") as String,
                     document.get("userID") as String,
+
                 ))
             }
             adapter = ActivityAdapter(actList)

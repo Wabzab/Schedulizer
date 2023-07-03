@@ -11,4 +11,5 @@ data class Activity (
     var duration: Long = 0,
     var tagID: String = "",
     var userID: String = "",
+    var imageUri: String = ""
 )
